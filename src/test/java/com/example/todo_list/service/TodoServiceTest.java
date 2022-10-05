@@ -73,44 +73,7 @@ class TodoServiceTest {
 	public void testDifferentationLinks() {
 
 	}
-	////////////////////////////////////////////////////////////*
-	/*
-	 	@Test
-	public void testDescriptionNotEmpty() {
-		List<Todo> todoList = todoService.getTodos();
-		for (Todo todo : todoList) {
-			assertNotNull(todo.getDescription(), "Assert not null");
-		}
-	}
-	@Test
-	public void testUpdateTodo() {
-		Todo initialTodo = new Todo("alfredo", "desc", new Date(), false);
-		todoService.updateTodo(initialTodo);
-		java.util.Optional<Todo> optionalTodo = todoService.getTodoById(1);
-		if (optionalTodo.isPresent()) {
-			Todo expectedTodo = optionalTodo.get();
-			assertEquals(expectedTodo.getDescription(), initialTodo.getDescription());
-		}
-	}
 
-	@Test
-	public void testDeleteTodo() {
-		todoService.deleteTodo(1);
-		Optional<Todo> optionalTodo = todoService.getTodoById(1);
-		assert !optionalTodo.isPresent();
-	}
 
-	@Test
-	public void testDescriptionDoesNotBeginWith() {
-		String chars = "@#";
-		List<Todo> todoList = todoService.getTodos();
-		for (Todo todo : todoList) {
-			assertNotEquals(todo.getDescription().charAt(0), '@');
-			assertNotEquals(todo.getDescription().charAt(0), '#');
-		}
-	}
-	////////////////////
-	 * */
-	 
 
 }
