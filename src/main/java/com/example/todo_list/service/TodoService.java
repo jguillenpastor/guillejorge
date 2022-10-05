@@ -54,4 +54,5 @@ public class TodoService implements ITodoService {
 	public List<Todo> getTodos() {
 		return (todoRepository.findAll());
 	}
+
 }
