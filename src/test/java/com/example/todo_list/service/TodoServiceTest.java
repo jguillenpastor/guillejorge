@@ -72,4 +72,10 @@ class TodoServiceTest {
 		assertEquals(todoobj.getTodoLink(), expectedValue);
 	}
 
+
+	@Test
+	public void testOlderDate() {																		//create  fin
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(2020, 5, 19), new Date(2021, 5, 19), "link wec",false);
+		assertTrue(todoobj.getCreationDate().getTime()<todoobj.getFinalizationDate().getTime());
+	}
 }

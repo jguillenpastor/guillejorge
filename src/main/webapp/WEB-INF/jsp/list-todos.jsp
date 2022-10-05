@@ -1,6 +1,9 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 
+
+
+
 <div class="container">
 	<div>
 		<a type="button" class="btn btn-primary btn-md" href="/add-todo">Add Todo</a>
@@ -14,8 +17,9 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th width="40%">Description</th>
-						<th width="40%">Target Date</th>
+						<th width="30%">Description</th>
+						<th width="30%">Target Date</th>
+						<th width="20%">User Names</th>
 						<th width="20%"></th>
 					</tr>
 				</thead>
@@ -25,6 +29,7 @@
 							<td>${todo.description}</td>
 							<td><fmt:formatDate value="${todo.targetDate}"
 									pattern="dd/MM/yyyy" /></td>
+							<td      behavior="slide" direction="right">${todo.description}</td>
 							<td><a type="button" class="btn btn-success"
 								href="/update-todo?id=${todo.id}">Update</a>
 							<a type="button" class="btn btn-warning"

@@ -28,6 +28,8 @@ public class Todo {
 	private  String todoLink;
 
 	private Boolean isDone;
+	public Todo() {
+	}
 
 	public Todo(long id, String userName, String description, Date targetDate, Date creationDate, Date finalizationDate,  String todoLink,Boolean isDone) {
 		this.id = id;
@@ -39,6 +41,16 @@ public class Todo {
 		this.todoLink = todoLink;
 		this.isDone = isDone;
 
+
+	}
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getUserName() {
