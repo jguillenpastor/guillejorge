@@ -11,71 +11,84 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "todos")
 public class Todo {
-	
-	    @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 
-		private String userName;
+	private String userName;
 
-	    private String description;
+	private String description;
 
-	    private Date targetDate;
+	private Date targetDate;
 
-	    public Todo() {
-	        super();
-	    }
+	private Date creationDate;
 
-	    public Todo(Long id,String user, String desc, Date targetDate,Date creationDate, boolean isDone) {
-	        super();
-	        
-	        this.setId(id);
-	        this.setUserName(user);
-	        this.setDescription(desc);
-	        this.setTargetDate(targetDate);
-	        this.setcreationDate(creationDate);
-	    }
-	    
-	    public long getId() {
-			return id;
-		}
-	    
-	    //
+	private Date finalizationDate;
 
-		public void setId(long id) {
-			this.id = id;
-		}
+	private Boolean isDone;
 
-		public String getUserName() {
-			return userName;
-		}
 
-		public void setUserName(String userName) {
-			this.userName = userName;
-		}
+	public Todo() {
 
-		public String getDescription() {
-			return description;
-		}
+	}
 
-		public void setDescription(String description) {
-			this.description = description;
-		}
+	public Todo(Long id, String userName, String description, Date targetDate, Date creationDate, Date finalizationDate, boolean isDone) {
+		this.id = id;
+		this.userName = userName;
+		this.description = description;
+		this.targetDate = targetDate;
+		this.creationDate = creationDate;
+		this.finalizationDate = finalizationDate;
+		this.isDone = isDone;
+	}
 
-		public Date getTargetDate() {
-			return targetDate;
-		}
+	public String getUserName() {
+		return userName;
+	}
 
-		public void setTargetDate(Date targetDate) {
-			this.targetDate = targetDate;
-		}
-		
-		public Date getcreationDate() {
-			return targetDate;
-		}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-		public void setcreationDate(Date targetDate) {
-			this.targetDate = targetDate;
-		}
-	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getTargetDate() {
+		return targetDate;
+	}
+
+	public void setTargetDate(Date targetDate) {
+		this.targetDate = targetDate;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Date getFinalizationDate() {
+		return finalizationDate;
+	}
+
+	public void setFinalizationDate(Date finalizationDate) {
+		this.finalizationDate = finalizationDate;
+	}
+
+	public boolean getIsDone() {
+		return isDone;
+	}
+
+	public void setIsDone(boolean isDone) {
+		this.isDone = isDone;
+	}
+
+
 }

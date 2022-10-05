@@ -33,7 +33,7 @@ class TodoServiceTest {
 
 	@Test
 	public void testTODOupdateable() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(),false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), false);
 		todoService.saveTodo(todoobj);
 		assertEquals(todoobj.getDescription(), todoService.getTodoById(1).get().getDescription());
 
@@ -41,35 +41,37 @@ class TodoServiceTest {
 	
 	@Test
 	public void testTODOremuvable() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(),new Date(), false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(),new Date(),new Date(), false);
 		todoService.saveTodo(todoobj);
 		todoService.deleteTodo(1);
-		assertTrue(!todoService.getTodoById(1).isPresent()); ;
-
+		assertTrue(!todoService.getTodoById(1).isPresent());
 	}
 	
 	@Test
-	public void AddCreationDate() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(),false);
+	public void testAddCreationDate() {
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(),new Date(),false);
 		todoService.saveTodo(todoobj);
-		Date date= todoService.getTodoById(1).get().getcreationDate();
-		assertEquals(todoobj.getcreationDate(), date);
+		Date date= todoService.getTodoById(1).get().getCreationDate();
+		assertEquals(todoobj.getCreationDate(), date);
 	}
 		//assert.assertTrue(!todoService.getTodoById(1).isPresent()); ;
 
 	@Test
-	public void AddFinalizationDate() {
-		//añadir finalizarion date a Todo
+	public void testAddFinalizationDate() {
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), false);
+		todoService.saveTodo(todoobj);
+		Date date= todoService.getTodoById(1).get().getCreationDate();
+		assertEquals(todoobj.getCreationDate(), date);
 	}
 	
 	@Test
-	public void AddLink() {
+	public void testAddLink() {
 		//add link a todo y comprobar q al meterlo está
 	}
 	
 	@Test
-	public void DifferentationLinks() {
-		//
+	public void testDifferentationLinks() {
+
 	}
 	////////////////////////////////////////////////////////////*
 	/*
