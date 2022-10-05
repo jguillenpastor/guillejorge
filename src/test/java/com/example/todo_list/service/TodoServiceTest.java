@@ -33,7 +33,7 @@ class TodoServiceTest {
 
 	@Test
 	public void testTODOupdateable() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec", false);
 		todoService.saveTodo(todoobj);
 		assertEquals(todoobj.getDescription(), todoService.getTodoById(1).get().getDescription());
 
@@ -41,7 +41,7 @@ class TodoServiceTest {
 	
 	@Test
 	public void testTODOremuvable() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(),new Date(),new Date(), false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(),new Date(),new Date(), "link wec", false);
 		todoService.saveTodo(todoobj);
 		todoService.deleteTodo(1);
 		assertTrue(!todoService.getTodoById(1).isPresent());
@@ -49,7 +49,7 @@ class TodoServiceTest {
 	
 	@Test
 	public void testAddCreationDate() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(),new Date(),false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(),new Date(), "link wec",false);
 		todoService.saveTodo(todoobj);
 		Date date= todoService.getTodoById(1).get().getCreationDate();
 		assertEquals(todoobj.getCreationDate(), date);
@@ -58,7 +58,7 @@ class TodoServiceTest {
 
 	@Test
 	public void testAddFinalizationDate() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",false);
 		todoService.saveTodo(todoobj);
 		Date date= todoService.getTodoById(1).get().getCreationDate();
 		assertEquals(todoobj.getCreationDate(), date);
@@ -66,12 +66,15 @@ class TodoServiceTest {
 	
 	@Test
 	public void testAddLink() {
-		//add link a todo y comprobar q al meterlo está
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",false);
+		todoService.saveTodo(todoobj);
+		String link= todoService.getTodoById(1).get().getTodoLink();
+		assertEquals(todoobj.getTodoLink(), link);
 	}
 	
 	@Test
 	public void testDifferentationLinks() {
-
+		//pillas dos links y miras si son iguales o diferentes
 	}
 
 

@@ -25,21 +25,20 @@ public class Todo {
 
 	private Date finalizationDate;
 
+	private  String todoLink;
+
 	private Boolean isDone;
 
-
-	public Todo() {
-
-	}
-
-	public Todo(Long id, String userName, String description, Date targetDate, Date creationDate, Date finalizationDate, boolean isDone) {
+	public Todo(long id, String userName, String description, Date targetDate, Date creationDate, Date finalizationDate,  String todoLink,Boolean isDone) {
 		this.id = id;
 		this.userName = userName;
 		this.description = description;
 		this.targetDate = targetDate;
 		this.creationDate = creationDate;
 		this.finalizationDate = finalizationDate;
+		this.todoLink = todoLink;
 		this.isDone = isDone;
+
 	}
 
 	public String getUserName() {
@@ -56,6 +55,14 @@ public class Todo {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getTodoLink() {
+		return this.todoLink;
+	}
+
+	public void setTodoLink(String todoLink) {
+		this.todoLink = todoLink;
 	}
 
 	public Date getTargetDate() {

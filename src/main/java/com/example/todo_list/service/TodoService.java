@@ -32,8 +32,8 @@ public class TodoService implements ITodoService {
 	}
 
 	@Override
-	public void addTodo(Long id,String name, String desc, Date targetDate,Date creationDate, boolean isDone) {
-		todoRepository.save(new Todo(id,name, desc, targetDate,creationDate, isDone));
+	public void addTodo(Long id,String name, String desc, Date targetDate,Date creationDate, Date finalizationDate, String todoLink, boolean isDone) {
+		todoRepository.save(new Todo(id,name, desc, targetDate,creationDate,finalizationDate, todoLink,isDone));
 	}
 
 	@Override
