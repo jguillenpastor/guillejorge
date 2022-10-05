@@ -2,10 +2,7 @@ package com.example.todo_list.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,7 +91,7 @@ class TodoServiceTest {
 	public void testAddPeople() {
 		String people="PEPO";
 		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",new ArrayList<String>(Arrays.asList(people)),false);
-		assertTrue(todoobj.getPeople().get(0)==people);
+		assertTrue(Objects.equals(todoobj.getPeople().get(0), people));
 	}
 
 }
