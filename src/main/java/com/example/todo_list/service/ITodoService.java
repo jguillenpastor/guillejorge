@@ -20,6 +20,6 @@ public interface ITodoService {
 
 	List<Todo> getTodos();
 
-	void addTodo(Long id, String name, String desc, Date targetDate, Date creationDate, Date finalizationDate, String todoLink, boolean isDone);
+	void addTodo(Long id, String name, String desc, Date targetDate, Date creationDate, Date finalizationDate, String todoLink,List<String> people, boolean isDone);
 
 }

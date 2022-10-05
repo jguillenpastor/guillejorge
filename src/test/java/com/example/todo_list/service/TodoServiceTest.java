@@ -2,6 +2,8 @@ package com.example.todo_list.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +35,7 @@ class TodoServiceTest {
 
 	@Test
 	public void testTODOupdateable() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec", false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",new ArrayList<String>(Arrays.asList("PEPO")), false);
 		todoService.saveTodo(todoobj);
 		assertEquals(todoobj.getDescription(), todoService.getTodoById(1).get().getDescription());
 
@@ -41,7 +43,7 @@ class TodoServiceTest {
 	
 	@Test
 	public void testTODOremuvable() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(),new Date(),new Date(), "link wec", false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(),new Date(),new Date(), "link wec",new ArrayList<String>(Arrays.asList("PEPO")), false);
 		todoService.saveTodo(todoobj);
 		todoService.deleteTodo(1);
 		assertTrue(!todoService.getTodoById(1).isPresent());
@@ -49,7 +51,7 @@ class TodoServiceTest {
 	
 	@Test
 	public void testAddCreationDate() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(),new Date(), "link wec",false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(),new Date(), "link wec",new ArrayList<String>(Arrays.asList("PEPO")),false);
 		todoService.saveTodo(todoobj);
 		Date date= todoService.getTodoById(1).get().getCreationDate();
 		assertEquals(todoobj.getCreationDate(), date);
@@ -58,7 +60,7 @@ class TodoServiceTest {
 
 	@Test
 	public void testAddFinalizationDate() {
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",new ArrayList<String>(Arrays.asList("PEPO")),false);
 		todoService.saveTodo(todoobj);
 		Date date= todoService.getTodoById(1).get().getCreationDate();
 		assertEquals(todoobj.getCreationDate(), date);
@@ -67,7 +69,7 @@ class TodoServiceTest {
 	@Test
 	public void testAddLink() {
 		String expectedValue = "aaaaa";
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",new ArrayList<String>(Arrays.asList("PEPO")),false);
 		todoobj.setTodoLink(expectedValue);
 		assertEquals(todoobj.getTodoLink(), expectedValue);
 	}
@@ -75,7 +77,7 @@ class TodoServiceTest {
 
 	@Test
 	public void testOlderDate() {																		//create  fin
-		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(2020, 5, 19), new Date(2021, 5, 19), "link wec",false);
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(2020, 5, 19), new Date(2021, 5, 19), "link wec",new ArrayList<String>(Arrays.asList("PEPO")),false);
 		assertTrue(todoobj.getCreationDate().getTime()<todoobj.getFinalizationDate().getTime());
 	}
 	@Test
@@ -86,6 +88,13 @@ class TodoServiceTest {
 
 		assertFalse(failingValue.matches(regex));
 		assertTrue(correctValue.matches(regex));
+	}
+
+	@Test
+	public void testAddPeople() {
+		String people="PEPO";
+		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",new ArrayList<String>(Arrays.asList(people)),false);
+		assertTrue(todoobj.getPeople().get(0)==people);
 	}
 
 }
