@@ -66,17 +66,10 @@ class TodoServiceTest {
 	
 	@Test
 	public void testAddLink() {
+		String expectedValue = "aaaaa";
 		Todo todoobj = new Todo(Long.valueOf("1"),"juan", "Po eso", new Date(), new Date(), new Date(), "link wec",false);
-		todoService.saveTodo(todoobj);
-		String link= todoService.getTodoById(1).get().getTodoLink();
-		assertEquals(todoobj.getTodoLink(), link);
+		todoobj.setTodoLink(expectedValue);
+		assertEquals(todoobj.getTodoLink(), expectedValue);
 	}
-	
-	@Test
-	public void testDifferentationLinks() {
-		//pillas dos links y miras si son iguales o diferentes
-	}
-
-
 
 }
