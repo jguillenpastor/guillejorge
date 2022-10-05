@@ -1,4 +1,5 @@
 package com.example.todo_list.service;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -32,8 +33,8 @@ public class TodoService implements ITodoService {
 	}
 
 	@Override
-	public void addTodo(Long id,String name, String desc, Date targetDate,Date creationDate, Date finalizationDate, String todoLink,List<String> people, boolean isDone) {
-		todoRepository.save(new Todo(id,name, desc, targetDate,creationDate,finalizationDate, todoLink,people,isDone));
+	public void addTodo(Long id, String name, String desc, Date targetDate, Date creationDate, Date finalizationDate, String todoLink, ArrayList<String> people, boolean isDone) {
+		todoRepository.save(new Todo(id, name, desc, targetDate, creationDate, finalizationDate, todoLink, people, isDone));
 	}
 
 	@Override
@@ -53,6 +54,11 @@ public class TodoService implements ITodoService {
 	@Override
 	public List<Todo> getTodos() {
 		return (todoRepository.findAll());
+	}
+
+	@Override
+	public void addTodo(Long id, String name, String desc, Date targetDate, Date creationDate, Date finalizationDate, String todoLink, List<String> people, boolean isDone) {
+
 	}
 
 }

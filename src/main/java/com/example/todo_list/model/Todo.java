@@ -1,5 +1,6 @@
 package com.example.todo_list.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,12 +29,12 @@ public class Todo {
 
 	private  String todoLink;
 
-	private List<String> people;
+	private ArrayList<String> people;
 	private Boolean isDone;
 	public Todo() {
 	}
 
-	public Todo(long id, String userName, String description, Date targetDate, Date creationDate, Date finalizationDate, String todoLink, List<String> people, Boolean isDone) {
+	public Todo(long id, String userName, String description, Date targetDate, Date creationDate, Date finalizationDate, String todoLink, ArrayList<String> people, Boolean isDone) {
 		this.id = id;
 		this.userName = userName;
 		this.description = description;
@@ -45,11 +46,11 @@ public class Todo {
 		this.isDone = isDone;
 	}
 
-	public List<String> getPeople() {
+	public ArrayList<String> getPeople() {
 		return people;
 	}
 
-	public void setPeople(List<String> people) {
+	public void setPeople(ArrayList<String> people) {
 		this.people = people;
 	}
 

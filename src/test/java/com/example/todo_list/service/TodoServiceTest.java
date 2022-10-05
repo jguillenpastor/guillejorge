@@ -21,7 +21,7 @@ class TodoServiceTest {
 
 	@Test
 	public void testTODOnotEmpty() {
-		List<Todo> todoList = todoService.getTodos();
+		ArrayList<Todo> todoList = (ArrayList<Todo>) todoService.getTodos();
 		for (Todo todo : todoList) {
 			assertNotNull(todo.getDescription());
 
